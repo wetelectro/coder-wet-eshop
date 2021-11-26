@@ -1,0 +1,14 @@
+.cart_container{
+    display: flex;
+    gap: 0.25rem;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    background: #d72b2b;
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.cart_container:hover{
+    filter: brightness(1.1);
+}

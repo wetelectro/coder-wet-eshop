@@ -1,0 +1,21 @@
+.item_counter{
+    display: flex;
+    padding: 1rem;
+    background: #bcdba1;
+    width: min-content;
+    flex-direction: column;
+}
+
+.item_counter__count{
+    align-self: center;
+    font-size: 150%;
+    margin-bottom: 0.5rem;
+}
+
+.item_counter__buttons_wrapper{
+    display: flex;
+}
+
+.item_counter button{
+    padding: 0.25rem 1rem;
+}

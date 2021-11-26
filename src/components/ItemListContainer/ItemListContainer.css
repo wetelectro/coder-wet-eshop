@@ -1,0 +1,23 @@
+.greeting_background{
+    background: #101010;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    min-height: 240px;
+}
+
+.greeting_logo{
+    height: 50px;
+    position: absolute;
+    bottom: 1rem;
+    right: 3rem;
+}
+
+.greeting_text{
+    position: absolute;
+    top: 3rem;
+    left: 5rem;
+    color: whitesmoke;
+    font-size: 200%;
+    font-style: italic;
+}

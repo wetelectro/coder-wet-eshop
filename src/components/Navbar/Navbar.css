@@ -1,0 +1,39 @@
+.navbar{
+    background-color: yellowgreen;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar_wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.navbar div {
+    place-self: center;
+}
+
+.navbar__link{
+    display: inline-block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: #3d3d3d;
+    cursor: pointer;
+}
+
+.navbar__link:hover{
+    color: #e2ff6e;
+    transform: scale(1.05);
+}
+
+.navbar__logo{
+    display: inline-block;
+    padding: 0.5rem;
+    font-weight: 800;
+    font-size: 190%;
+}
