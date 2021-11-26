@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Item } from "../Item/Item";
 import { useAsyncMock } from '../../Hooks/AsyncMockHook.js';
 import './ItemList.css';

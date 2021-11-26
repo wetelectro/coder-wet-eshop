@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
 
 export const useAsyncMock = (timeout) => {
-
     const [data, setData] = useState(null);
-
     useEffect(() => {
         fakeFetch(timeout)
             .then(res => {
                 setData(res);
             })
-    }, []);
+    },[]);
+    return([data]);
+}
 
+export const useAsyncMockById = (timeout, id) => {
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        fakeFetch(timeout)
+            .then(res => {
+                setData(res[id]);
+            })
+    },[]);
     return([data]);
 }
 

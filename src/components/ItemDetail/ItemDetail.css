@@ -1,0 +1,41 @@
+.item_details__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    padding: 3rem;
+    margin: 4rem;
+    border-radius: 10px;
+    box-shadow: 4px 6px 15px #00000010;
+    max-width: 1200px;
+    align-self: center;
+    grid-gap: 2rem;
+    gap: 2rem;
+}
+
+.item_detail__column{
+    display: flex;
+    flex-direction: column;
+}
+
+.item_details__title{
+    font-weight: 300;
+    font-size: 230%;
+}
+
+.item_detail__price{
+    font-weight: 400;
+    color: cornflowerblue;
+    font-size: 200%;
+    margin: 0.25rem 0 1rem 0;
+}
+
+.item_detail__description{
+    line-height: 1.5rem;
+}
+
+.item_details__image{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+    object-fit: cover;
+}
