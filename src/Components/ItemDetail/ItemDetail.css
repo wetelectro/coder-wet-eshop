@@ -2,24 +2,25 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: white;
-    padding: 3rem;
+    padding: 2rem;
     margin: 4rem;
     border-radius: 10px;
     box-shadow: 4px 6px 15px #00000010;
     max-width: 1200px;
     align-self: center;
-    grid-gap: 2rem;
-    gap: 2rem;
 }
 
 .item_detail__column{
     display: flex;
     flex-direction: column;
+    margin-left: 2rem;
+    border-left: solid 1px #00000015;
 }
 
-.item_details__title{
-    font-weight: 300;
+.item_detail__title{
+    font-weight: 500;
     font-size: 230%;
+    margin-left: 1rem;
 }
 
 .item_detail__price{
@@ -27,10 +28,14 @@
     color: cornflowerblue;
     font-size: 200%;
     margin: 0.25rem 0 1rem 0;
+    margin-left: 1rem;
 }
 
 .item_detail__description{
     line-height: 1.5rem;
+    border-top: solid 1px #00000015;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
 }
 
 .item_details__image{

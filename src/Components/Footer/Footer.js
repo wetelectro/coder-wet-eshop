@@ -5,7 +5,7 @@ export const Footer = () => {
     return(
         <React.Fragment>
             <footer className='footer'>
-                <p>footer</p>
+                <p>Made by Agustin Wet - 2021</p>
             </footer>
         </React.Fragment>
     )

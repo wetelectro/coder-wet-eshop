@@ -1,8 +1,9 @@
 .navbar{
-    background-color: yellowgreen;
-    color: black;
+    background-color: #ffbd4b;
+    color: #303030;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 0 10px #00000020;
 }
 
 .navbar_wrapper{
@@ -22,12 +23,12 @@
     display: inline-block;
     padding: 0.5rem;
     text-decoration: none;
-    color: #3d3d3d;
+    color: #303030;
     cursor: pointer;
 }
 
 .navbar__link:hover{
-    color: #e2ff6e;
+    color: cornflowerblue;;
     transform: scale(1.05);
 }
 
@@ -36,4 +37,10 @@
     padding: 0.5rem;
     font-weight: 800;
     font-size: 190%;
+    cursor: pointer;
+    text-decoration: none;
+    color: #303030;
+}
+.navbar__logo:hover{
+    color: cornflowerblue;
 }

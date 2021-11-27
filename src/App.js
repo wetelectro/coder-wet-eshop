@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
 /* Componentes */
-import { NavBar }from './components/Navbar/NavBar';
-import { Footer } from './components/Footer/Footer';
+import { NavBar }from './Components/Navbar/NavBar';
+import { Footer } from './Components/Footer/Footer';
 import { Routes, Route, Link } from "react-router-dom";
-import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
-import { ItemCount } from './components/ItemCount/ItemCount';
-import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
+import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
 
@@ -15,10 +14,7 @@ function App() {
       <NavBar />
         <Routes>
 
-          <Route path='/' element={[
-            <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/>,
-            <ItemCount />
-          ]}/>
+          <Route path='/' element={ <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/> }/>
           <Route path='/product/:id' element={ <ItemDetailContainer />} />
           
         </Routes>

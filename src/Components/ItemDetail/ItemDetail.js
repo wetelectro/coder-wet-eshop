@@ -1,5 +1,6 @@
 import React from "react";
 import './ItemDetail.css';
+import { ItemCount } from "../ItemCount/ItemCount";
 
 export const ItemDetail = (props) => {
 
@@ -12,6 +13,7 @@ export const ItemDetail = (props) => {
                 <h1 className='item_detail__title'>{props.item.title}</h1>
                 <span className='item_detail__price'>${props.item.price}</span>
                 <p className='item_detail__description'>{props.item.description}</p>
+                <ItemCount />
             </div>
         </div>
     )

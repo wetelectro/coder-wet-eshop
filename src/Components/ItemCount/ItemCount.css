@@ -1,0 +1,90 @@
+.item_counter__wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+    width: 300px;
+    margin-top: auto;
+}
+
+.item_counter{
+    display: flex;
+    flex-direction: row;
+    width: -moz-fit-content;
+    width: fit-content;
+    border: solid 1px #e7e7e7;
+    border-radius: 5px;
+    background: #f0f0f0;
+}
+
+.item_counter__panel{
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+}
+
+.item_counter_button{
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    background: white;
+    outline: none;
+}
+.item_counter_button--left{
+    border-radius: 5px 0 0 5px;
+}
+.item_counter_button--right{
+    border-radius: 0 5px 5px 0;
+}
+.item_counter_button:hover{
+    background: #e7e7e7;
+}
+
+.item_counter__count{
+    align-self: center;
+    padding: 0.5rem 2rem;
+    background: white;
+    font-size: 90%;
+}
+
+.item_counter__buttons_wrapper{
+    display: flex;
+}
+
+.item_counter button{
+    padding: 0.25rem 1rem;
+}
+
+.reset_count_button{
+    display: flex;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: cornflowerblue;
+    color: white;
+    font-weight: 900;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    margin-left: auto;
+}
+
+.reset_count_button:hover{
+    filter: brightness(0.9);
+}
+
+.add_to_cart__button{
+    margin: 1rem 0 0 0;
+    padding: 0.4rem 2rem;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background: cornflowerblue;
+}
+.add_to_cart__button:hover{
+    filter: brightness(0.95);
+}
