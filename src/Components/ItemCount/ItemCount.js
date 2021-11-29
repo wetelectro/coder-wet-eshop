@@ -2,8 +2,8 @@ import React from "react";
 import { useCounter } from "../../Hooks/CounterHook";
 import './ItemCount.css';
 
-export const ItemCount = () => {
-    const [count, add, sub, rs] = useCounter(0);
+export const ItemCount = (props) => {
+    const [count, add, sub, rs] = useCounter(0, props.stock);
 
     return(
         <div className='item_counter__wrapper'>

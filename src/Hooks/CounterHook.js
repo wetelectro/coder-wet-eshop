@@ -1,13 +1,17 @@
 import { useState } from "react";
 
-export const useCounter = (init) => {
+export const useCounter = (init, stock) => {
     const [count, setCount] = useState(init);
 
     function increment(){
-        setCount(count + 1);
+        if(count < stock){
+            setCount(count + 1);
+        }
     }
     function decrement(){
-        setCount(count - 1);
+        if(!count <= 0){
+            setCount(count - 1);
+        }
     }
     function reset(){
         setCount(0);

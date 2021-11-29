@@ -13,7 +13,7 @@ export const ItemDetail = (props) => {
                 <h1 className='item_detail__title'>{props.item.title}</h1>
                 <span className='item_detail__price'>${props.item.price}</span>
                 <p className='item_detail__description'>{props.item.description}</p>
-                <ItemCount />
+                <ItemCount stock={props.item.stock} />
             </div>
         </div>
     )
