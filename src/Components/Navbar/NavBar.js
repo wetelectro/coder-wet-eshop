@@ -1,10 +1,14 @@
 import React from "react";
 import './Navbar.css';
 import { CartWidget } from "../CartWidget/CartWidget";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const NavBar = () => {
-    const links = ['Inicio', 'Contacto', 'Login/Register'];
+    const categories = [
+        { name: 'electrodomesticos', id: 0 },
+        { name: 'tecnologia', id: 1 },
+        { name: 'deportes', id: 2 }
+    ];
 
     return(
         <header className='navbar'>
@@ -15,8 +19,16 @@ export const NavBar = () => {
                     </Link>
                 </div>
                 <div>
-                    {links.map((link, index) => {
-                        return <a href='/#' key={index} className='navbar__link'>{link}</a>
+                    {categories.map((category, index) => {
+                        return(
+                            <NavLink 
+                                to={'/category/' + category.id} 
+                                key={index} 
+                                className='navbar__link'
+                            >
+                            {category.name}
+                            </NavLink>
+                        )
                     })}
                 </div>
                 <CartWidget />

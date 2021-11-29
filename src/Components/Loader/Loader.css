@@ -1,0 +1,41 @@
+.loader__wrapper{
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.loader__message{
+    text-transform: capitalize;
+    font-size: 28px;
+    color: #626262;
+}
+
+.loader{
+    width: fit-content;
+    background: cornflowerblue;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+}
+
+.loader__icon{
+    color: white;
+    font-size: 200%;
+    height: 30px;
+    width: 32px;
+    animation: rotation 1s 0s linear infinite;
+}
+
+@keyframes rotation {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

@@ -25,10 +25,15 @@
     text-decoration: none;
     color: #303030;
     cursor: pointer;
+    text-transform: capitalize;
+}
+
+.navbar__link.active{
+    color: cornflowerblue;
 }
 
 .navbar__link:hover{
-    color: cornflowerblue;;
+    color: cornflowerblue;
     transform: scale(1.05);
 }
 

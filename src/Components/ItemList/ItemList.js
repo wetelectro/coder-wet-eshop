@@ -1,14 +1,12 @@
 import React from "react";
 import { Item } from "../Item/Item";
-import { useAsyncMock } from '../../Hooks/AsyncMockHook.js';
 import './ItemList.css';
 
-export const ItemList = () => {
-    const [items] = useAsyncMock(2000);
+export const ItemList = (props) => {
 
     return(
         <div className='item_list'>
-            {items ? items.map((item) => {
+            {props.items ? props.items.map((item) => {
                 return(
                     <Item
                         id={item.id}
@@ -17,7 +15,7 @@ export const ItemList = () => {
                         title={item.title}
                     />
                 )
-            }) : 'Loading'}
+            }) : 'Loading products...'}
         </div>
     )
 }
