@@ -88,3 +88,18 @@
 .add_to_cart__button:hover{
     filter: brightness(0.95);
 }
+
+.buy__button{
+    margin: 1rem 0 0 0;
+    padding: 0.4rem 2rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    color: cornflowerblue;
+    background: white;
+    border: solid 1px cornflowerblue;
+}
+.buy__button:hover{
+    color: white;
+    background: cornflowerblue;
+}

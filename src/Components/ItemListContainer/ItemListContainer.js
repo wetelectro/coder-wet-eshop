@@ -16,7 +16,7 @@ export const ItemListContainer = (props) => {
                 <span className='greeting_text'>"{props.greeting}"</span>
             </div>
             { items ? categoryId ? 
-                <ItemList items={ items.filter((item) => { return item.categoryId == categoryId }) }/>
+                <ItemList items={ items.filter((item) => { return item.categoryId.toString() === categoryId }) }/>
                 :
                 <ItemList items={ items }/>
                 :
