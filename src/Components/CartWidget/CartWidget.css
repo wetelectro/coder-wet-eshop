@@ -2,13 +2,27 @@
     display: flex;
     gap: 0.25rem;
     margin: 0 1rem;
-    padding: 0.5rem;
+    padding: 0.4rem;
     background: #303030;
+    height: 2.3rem;
     border-radius: 5px;
     color: whitesmoke;
     cursor: pointer;
+    align-items: center;
 }
 
 .cart_container:hover{
     background: cornflowerblue;
+}
+
+.cart_widget__counter{
+    display: flex;
+    padding: auto;
+    background: #eb3333;
+    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
 }

@@ -60,8 +60,23 @@ export const CartProvider = (props) => {
         return exists;
     }
 
+    const itemCount = () => {
+        let total = 0;
+        cartItems.map((item) => {
+            total = total + item.quantity;
+        })
+        return total;
+    }
+
     const emptyCart = () => {
         setCartItems([]);
+    }
+
+    const isEmpty = () => {
+        if(cartItems <= 0){
+            return true;
+        }
+        return false;
     }
 
     const showCart = () => {
@@ -78,7 +93,9 @@ export const CartProvider = (props) => {
             getTotal: getTotal,
             showCart: showCart,
             emptyCart: emptyCart,
-            isInCart: isInCart
+            isInCart: isInCart,
+            isEmpty: isEmpty,
+            itemCount: itemCount
         }}>
             {props.children}
         </CartContext.Provider>

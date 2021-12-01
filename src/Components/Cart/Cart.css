@@ -86,3 +86,10 @@
 .cart__final_price{
     margin-left: auto;
 }
+
+.cart__msg_empty{
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    width: 80%;
+}
