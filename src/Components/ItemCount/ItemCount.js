@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useCart } from "../../Context/cartContext";
 import { useCounter } from "../../Hooks/CounterHook";
 import './ItemCount.css';
 
 export const ItemCount = (props) => {
-    const [count, add, sub, rs] = useCounter(0, props.stock);
-    const [isVisible, setVisible] = useState(true);
+    const [count, add, sub, rs] = useCounter(1, props.stock);
     const navigate = useNavigate();
+    const Cart = useCart();
 
     const addToCart = (count) => {
-        setVisible(false);
         props.addToCart(count);
     }
 
     return(
         <div className='item_counter__wrapper'>
-            { isVisible ? 
+            { !Cart.isInCart(props.id) ? 
                 <React.Fragment>
                     <div className='item_counter__panel'>
                         <div className='item_counter'>
@@ -32,9 +32,12 @@ export const ItemCount = (props) => {
                     </button>
                 </React.Fragment>
                 :
-                <button className='buy__button' onClick={() => {navigate('/cart')}}>
-                    <span>Finalizar Compra</span>
-                </button>
+                <React.Fragment>
+                    {Cart.isInCart(props.id) ? <span className='item_counter__cart_legend'>El articulo se encuentra actualmente en el carrito</span> : ''}
+                    <button className='buy__button' onClick={() => {navigate('/cart')}}>
+                        <span>Finalizar Compra</span>
+                    </button>
+                </React.Fragment>
             }
         </div>
     )

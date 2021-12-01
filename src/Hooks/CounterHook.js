@@ -9,12 +9,12 @@ export const useCounter = (init, stock) => {
         }
     }
     function decrement(){
-        if(!count <= 0){
+        if(count > 1){
             setCount(count - 1);
         }
     }
     function reset(){
-        setCount(0);
+        setCount(1);
     }
 
     return([

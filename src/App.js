@@ -7,21 +7,24 @@ import { Routes, Route } from "react-router-dom";
 import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
 import { Cart } from './Components/Cart/Cart';
+import { CartProvider } from './Context/cartContext';
 
 function App() {
 
   return (
     <React.Fragment>
-      <NavBar />
-        <Routes>
+      <CartProvider>
+        <NavBar />
+          <Routes>
 
-          <Route path='/' element={ <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/> }/>
-          <Route path='/category/:id' element={ <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/> }/>
-          <Route path='/item/:id' element={ <ItemDetailContainer />} />
-          <Route path='/cart' element={ <Cart />} />
-          
-        </Routes>
-      <Footer />
+            <Route path='/' element={ <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/> }/>
+            <Route path='/category/:id' element={ <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/> }/>
+            <Route path='/item/:id' element={ <ItemDetailContainer />} />
+            <Route path='/cart' element={ <Cart />} />
+            
+          </Routes>
+        <Footer />
+      </CartProvider>
     </React.Fragment>
   );
 }
