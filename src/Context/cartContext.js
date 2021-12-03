@@ -1,10 +1,20 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
+import { addOrderToFirebase, getOrdersFromFirebase } from "../Firebase/config";
 
 const CartContext = React.createContext([]);
 
 export const CartProvider = (props) => {
     const [cartItems, setCartItems] = useState([]);
+    const [orders, setOrders] = useState([]);
+
+    // Load and save the cart locally
+    window.addEventListener('load', () => {
+        loadCartLocally();
+    });
+    window.addEventListener('beforeunload', () => {
+        saveCartLocally();
+    });
 
     const addToCart = (item, quantity) => {
         if(!isInCart(item.id)){
@@ -83,6 +93,33 @@ export const CartProvider = (props) => {
         console.log(cartItems);
     }
 
+    // Order Functions
+    const pushOrder = (order) => {
+        addOrderToFirebase(order)
+            .then(() => {
+                setOrders([...orders, order.orderId]);
+            })
+    }
+    const getOrdersIds = () => {
+        return orders;
+    }
+    const getOrderList = () => {
+        getOrdersFromFirebase()
+            .then( res => {
+                return res;
+            })
+    }
+
+    const saveCartLocally = () => {
+        localStorage.setItem('cart-data', JSON.stringify(cartItems));
+        localStorage.setItem('order-data', JSON.stringify(orders));
+    }
+
+    const loadCartLocally = () => {
+        setCartItems(JSON.parse(localStorage.getItem('cart-data')));
+        setOrders(JSON.parse(localStorage.getItem('order-data')));
+    }
+
     return(
         <CartContext.Provider value={{
             cart: cartItems,
@@ -95,7 +132,13 @@ export const CartProvider = (props) => {
             emptyCart: emptyCart,
             isInCart: isInCart,
             isEmpty: isEmpty,
-            itemCount: itemCount
+            itemCount: itemCount,
+            saveCart: saveCartLocally,
+            loadCart: loadCartLocally,
+            // Orders
+            getMyOrders: getOrdersIds,
+            pushOrder: pushOrder,
+            getOrderList: getOrderList
         }}>
             {props.children}
         </CartContext.Provider>

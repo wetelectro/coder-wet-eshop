@@ -42,6 +42,19 @@ export const getCategories = async () => {
   return categoryList;
 }
 
+export const addOrderToFirebase = async (order) => {
+  addDoc(collection(db, 'orders'), order);
+}
+
+export const getOrdersFromFirebase = async () => {
+  const data = await getDocs(collection(db, 'orders'));
+  let orderList = [];
+  data.docs.map( doc => {
+    orderList.push(doc.data());
+  })
+  return orderList;
+}
+
 export const subirDatosFirebase = (array) => {
   array.map( item => {
     addDoc(collection(db, 'coder-react'), item);
