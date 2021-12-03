@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ItemList } from "../ItemList/ItemList";
 import './ItemListContainer.css';
-import { useAsyncMock } from '../../Hooks/AsyncMockHook.js';
 import { useParams } from "react-router";
 import { Loader } from "../Loader/Loader";
+import { useState } from "react/cjs/react.development";
+import { itemData } from "../../Firebase/config";
 
 export const ItemListContainer = (props) => {
     const categoryId = useParams().id;
-    const [items] = useAsyncMock(2000);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        itemData()
+            .then(res => {
+                setItems([...res]);
+            })
+    }, []);
 
     return(
         <React.Fragment>

@@ -16,12 +16,10 @@ function App() {
       <CartProvider>
         <NavBar />
           <Routes>
-
             <Route path='/' element={ <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/> }/>
             <Route path='/category/:id' element={ <ItemListContainer greeting='Hola Coderhouse, bienvenidos a mitienda'/> }/>
             <Route path='/item/:id' element={ <ItemDetailContainer />} />
             <Route path='/cart' element={ <Cart />} />
-            
           </Routes>
         <Footer />
       </CartProvider>

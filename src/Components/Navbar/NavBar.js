@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Navbar.css';
 import { CartWidget } from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import { getCategories } from "../../Firebase/config";
 
 export const NavBar = () => {
-    const categories = [
-        { name: 'electrodomesticos', id: 0 },
-        { name: 'tecnologia', id: 1 },
-        { name: 'deportes', id: 2 }
-    ];
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategories()
+            .then( res => {
+                setCategories([...res])
+            });
+    },[]);
 
     return(
         <header className='navbar'>

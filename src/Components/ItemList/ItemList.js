@@ -9,6 +9,7 @@ export const ItemList = (props) => {
             {props.items ? props.items.map((item) => {
                 return(
                     <Item
+                        key={item.id}
                         id={item.id}
                         image={item.image}
                         price={item.price}

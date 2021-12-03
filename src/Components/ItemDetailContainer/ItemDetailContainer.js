@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
-import { useAsyncMockById } from "../../Hooks/AsyncMockHook";
+import { useState } from "react/cjs/react.development";
+import { getItemById } from "../../Firebase/config";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { Loader } from "../Loader/Loader";
 import './ItemDetailContainer.css';
@@ -8,7 +9,14 @@ import './ItemDetailContainer.css';
 export const ItemDetailContainer = () => {
 
     const params = useParams();
-    const [item] = useAsyncMockById(2000, params.id);
+    const [item, setItem] = useState(null);
+
+    useEffect(() => {
+        getItemById(params.id)
+            .then(res => {
+                setItem(res);
+            });
+    },[params.id]);
 
     return(
         <div className='item_detail__wrapper'>

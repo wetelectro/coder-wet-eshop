@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './ItemDetail.css';
 import { ItemCount } from "../ItemCount/ItemCount";
 import { useCart } from "../../Context/cartContext";
