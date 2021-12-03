@@ -18,6 +18,7 @@ export const itemData = async () => {
   let itemList = [];
   data.docs.map( doc => {
     itemList.push(doc.data());
+    return 0;
   })
   return itemList;
 }
@@ -29,6 +30,7 @@ export const getItemById = async (id) => {
     if( doc.data().id === parseInt(id)){
       item = doc.data();
     }
+    return 0;
   })
   return item;
 }
@@ -38,6 +40,7 @@ export const getCategories = async () => {
   let categoryList = [];
   data.docs.map( doc => {
     categoryList.push(doc.data());
+    return 0;
   })
   return categoryList;
 }
@@ -51,6 +54,7 @@ export const getOrdersFromFirebase = async () => {
   let orderList = [];
   data.docs.map( doc => {
     orderList.push(doc.data());
+    return 0;
   })
   return orderList;
 }
@@ -58,5 +62,6 @@ export const getOrdersFromFirebase = async () => {
 export const subirDatosFirebase = (array) => {
   array.map( item => {
     addDoc(collection(db, 'coder-react'), item);
+    return 0;
   })
 }

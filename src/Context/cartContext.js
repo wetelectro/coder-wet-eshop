@@ -30,6 +30,7 @@ export const CartProvider = (props) => {
                     item.quantity = item.quantity + change;
                 }
             }
+            return 0;
         });
         setCartItems(itemList);
     }
@@ -48,6 +49,7 @@ export const CartProvider = (props) => {
             if(item.id === itemId){
                 itemList.splice(index,1);
             }
+            return 0;
         });
         setCartItems(itemList);
     }
@@ -56,6 +58,7 @@ export const CartProvider = (props) => {
         let total = 0;
         cartItems.map((item) => {
             total = total + (item.price * item.quantity);
+            return 0;
         });
         return total;
     }
@@ -66,6 +69,7 @@ export const CartProvider = (props) => {
             if(item.id === itemId){
                 exists = true;
             }
+            return 0;
         })
         return exists;
     }
@@ -74,6 +78,7 @@ export const CartProvider = (props) => {
         let total = 0;
         cartItems.map((item) => {
             total = total + item.quantity;
+            return 0;
         })
         return total;
     }
