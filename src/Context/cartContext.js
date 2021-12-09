@@ -56,36 +56,30 @@ export const CartProvider = (props) => {
 
     const getTotal = () => {
         let total = 0;
-        if( cartItems.length > 0 ){
-            cartItems.map((item) => {
-                total = total + (item.price * item.quantity);
-                return 0;
-            });
-        }
+        cartItems.map((item) => {
+            total = total + (item.price * item.quantity);
+            return 0;
+        });
         return total;
     }
 
     const isInCart = (itemId) => {
         let exists = false;
-        if( cartItems.length > 0 ){
-            cartItems.map((item) => {
-                if(item.id === itemId){
-                    exists = true;
-                }
-                return 0;
-            })
-        }
+        cartItems.map((item) => {
+            if(item.id === itemId){
+                exists = true;
+            }
+            return 0;
+        })
         return exists;
     }
 
     const itemCount = () => {
         let total = 0;
-        if( cartItems.length > 0 ){
-            cartItems.map((item) => {
-                total = total + item.quantity;
-                return 0;
-            })
-        }
+        cartItems.map((item) => {
+            total = total + item.quantity;
+            return 0;
+        })
         return total;
     }
 
@@ -128,8 +122,12 @@ export const CartProvider = (props) => {
     }
 
     const loadCartLocally = () => {
-        setCartItems(JSON.parse(localStorage.getItem('cart-data')));
-        setOrders(JSON.parse(localStorage.getItem('order-data')));
+        if( JSON.parse(localStorage.getItem('cart-data')) ){
+            setCartItems(JSON.parse(localStorage.getItem('cart-data')));
+        }
+        if( JSON.parse(localStorage.getItem('order-data')) ){
+            setOrders(JSON.parse(localStorage.getItem('order-data')));
+        }
     }
 
     return(
