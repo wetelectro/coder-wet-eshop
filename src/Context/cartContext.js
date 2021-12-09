@@ -111,6 +111,7 @@ export const CartProvider = (props) => {
     const getOrderList = () => {
         getOrdersFromFirebase()
             .then( res => {
+                console.log(res);
                 return res;
             })
     }

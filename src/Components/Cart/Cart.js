@@ -6,28 +6,35 @@ import { useState } from "react";
 
 export const Cart = () => {
     const Cart = useCart();
-    Cart.showCart();
 
     const [user, setUser] = useState({
         name: null,
         phone: null,
-        email: null
+        email: null,
+        remail: null
     });
 
+    console.log(Cart.getOrderList());
+
     const generateOrder = () => {
-        const order = {
-            orderId: new Date().getTime(),
-            buyer: { ...user },
-            items: [ ...Cart.cart ],
-            date: new Date(),
-            total: Cart.getTotal()
+        if(user.email === user.remail){
+            const order = {
+                orderId: new Date().getTime(),
+                buyer: { ...user },
+                items: [ ...Cart.cart ],
+                date: new Date(),
+                total: Cart.getTotal()
+            }
+            Cart.pushOrder(order);
+            setUser({
+                name: null,
+                phone: null,
+                email: null,
+                remail: null
+            });
+        }else{
+            console.log('emails are not equal.');
         }
-        Cart.pushOrder(order);
-        setUser({
-            name: null,
-            phone: null,
-            email: null
-        });
     }
 
     const handleInputName = (e) => {
@@ -38,6 +45,9 @@ export const Cart = () => {
     }
     const handleInputEmail = (e) => {
         setUser({ ...user, email: e.target.value });
+    }
+    const handleInputReEmail = (e) => {
+        setUser({ ...user, remail: e.target.value });
     }
 
     const ItemListHeaderDOM = (
@@ -57,14 +67,14 @@ export const Cart = () => {
                 <span>
                     <button className='cart__qbtn cart__qbtn__sub' onClick={() => {
                         Cart.subOne(item.id);
-                    }}> <i class="fas fa-minus"></i> </button>
+                    }}> <i className="fas fa-minus"></i> </button>
                     {item.quantity}
                     <button className='cart__qbtn cart__qbtn__add' onClick={() => {
                         Cart.addOne(item.id);
-                    }}> <i class="fas fa-plus"></i> </button>
+                    }}> <i className="fas fa-plus"></i> </button>
                     <button className='cart__qbtn cart__qbtn__delete' onClick={() => {
                         Cart.deleteFromCart(item.id);
-                    }}><i class="far fa-trash-alt"></i></button>
+                    }}><i className="far fa-trash-alt"></i></button>
                 </span>
                 <span>${item.price * item.quantity}</span>
             </div>
@@ -103,13 +113,14 @@ export const Cart = () => {
                     <input className='order__input' type='text' placeholder='Nombre y Apellido' onInput={handleInputName}/>
                     <input className='order__input' type='tel' placeholder='Telefono/Celular' onInput={handleInputPhone}/>
                     <input className='order__input' type='email' placeholder='Email' onInput={handleInputEmail}/>
+                    <input className='order__input' type='email' placeholder='Repeat email' onInput={handleInputReEmail}/>
                 </div>
                 <div>
                     <button className='order__submit' onClick={(e) => {
                         e.preventDefault();
                         generateOrder();
                     }}>
-                        <i class="fas fa-hand-holding-usd"></i> Generar Orden de Pago
+                        <i className="fas fa-hand-holding-usd"></i> Generar Orden de Pago
                     </button>
                 </div>
             </form>
@@ -118,7 +129,7 @@ export const Cart = () => {
             <div className='user_orders__wrapper'>
                 {Cart.getMyOrders().map((orderId) => {
                     return (
-                        <li>{orderId}</li>
+                        <li key={orderId}>Order ID : {orderId}</li>
                     )
                 })}
             </div>
