@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import './Navbar.css';
 import { CartWidget } from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { useState } from 'react';
 import { getCategories } from "../../Firebase/config";
 
 export const NavBar = () => {

@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import { ItemListContainer } from './Components/ItemListContainer/ItemListContainer';
 import { ItemDetailContainer } from './Components/ItemDetailContainer/ItemDetailContainer';
 import { Cart } from './Components/Cart/Cart';
-import { CartProvider} from './Context/cartContext';
+import { CartProvider } from './Context/cartContext.js';
 
 function App() {
 

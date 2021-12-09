@@ -3,7 +3,7 @@ import { ItemList } from "../ItemList/ItemList";
 import './ItemListContainer.css';
 import { useParams } from "react-router";
 import { Loader } from "../Loader/Loader";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { itemData } from "../../Firebase/config";
 
 export const ItemListContainer = (props) => {
