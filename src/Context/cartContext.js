@@ -56,30 +56,36 @@ export const CartProvider = (props) => {
 
     const getTotal = () => {
         let total = 0;
-        cartItems.map((item) => {
-            total = total + (item.price * item.quantity);
-            return 0;
-        });
+        if( cartItems.length > 0 ){
+            cartItems.map((item) => {
+                total = total + (item.price * item.quantity);
+                return 0;
+            });
+        }
         return total;
     }
 
     const isInCart = (itemId) => {
         let exists = false;
-        cartItems.map((item) => {
-            if(item.id === itemId){
-                exists = true;
-            }
-            return 0;
-        })
+        if( cartItems.length > 0 ){
+            cartItems.map((item) => {
+                if(item.id === itemId){
+                    exists = true;
+                }
+                return 0;
+            })
+        }
         return exists;
     }
 
     const itemCount = () => {
         let total = 0;
-        cartItems.map((item) => {
-            total = total + item.quantity;
-            return 0;
-        })
+        if( cartItems.length > 0 ){
+            cartItems.map((item) => {
+                total = total + item.quantity;
+                return 0;
+            })
+        }
         return total;
     }
 
